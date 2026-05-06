@@ -5,12 +5,25 @@ import { Provider } from "react-redux";
 import appStore from "./reduxContent/appStore";
 import Feed from "./components/Feed";
 import Profile from "./components/Profile";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
       <Provider store={appStore}>
         <BrowserRouter basename="/">
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              style: {
+                background: "#1f2937",
+                color: "#fff",
+                borderRadius: "12px",
+                padding: "12px 16px",
+                fontSize: "14px",
+              },
+            }}
+          />
           <Routes>
             <Route path="/" element={<Body />}>
               <Route path="/" element={<Feed />} />

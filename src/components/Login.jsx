@@ -4,6 +4,7 @@ import { addUser } from "../reduxContent/userSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,8 +23,9 @@ const Login = () => {
       );
       dispatch(addUser(result.data));
       navigate("/");
+      toast.success("Login successful");
     } catch (error) {
-      console.log(error.message);
+      toast.error(error.response.data);
     }
   };
   return (

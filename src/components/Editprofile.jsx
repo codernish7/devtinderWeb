@@ -39,7 +39,6 @@ const Editprofile = () => {
       dispatch(addUser(res?.data));
       toast.success("Profile edit successful");
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data);
     }
   };
